@@ -20,6 +20,7 @@ public class EmployeeService {
 
     public Employee addEmployee(Employee employee) {
         employee.setEmployeeCode(UUID.randomUUID().toString());
+        employee.setImageUrl("https://avatars.dicebear.com/api/human/" + employee.getEmail() + ".svg");
         return employeeRepository.save(employee);
     }
 
@@ -37,7 +38,7 @@ public class EmployeeService {
     }
 
     public void deleteEmployee(Long id) {
-        employeeRepository.deleteEmployeeById(id);
+        employeeRepository.deleteById(id);
     }
 
 }
